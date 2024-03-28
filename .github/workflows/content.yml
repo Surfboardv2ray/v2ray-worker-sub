@@ -1,0 +1,29 @@
+name: Update File from URL
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Fetch content from URL and update file
+        run: |
+          # Fetch content from URL
+          content=$(curl -L "https://vfaridkv3.divineglaive.workers.dev/sub")
+
+          # Write content to file
+          echo "$content" > https://github.com/Surfboardv2ray/rawtrash/blob/main/sub
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Update file from URL"
+          git push
