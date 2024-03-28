@@ -16,7 +16,7 @@ jobs:
       - name: Fetch content from URL and update file
         run: |
           # Fetch content from URL
-          curl -L "https://vfaridkv3.divineglaive.workers.dev/sub" | base64 --decode | sed 's/none/vmess/g' > ./sub
+          curl -L "https://vfaridkv3.divineglaive.workers.dev/sub" | base64 --decode | sed 's/none:/vmess/g' | sed 's/auto:/vmess/g' > ./sub
 
       - name: Commit and push changes
         run: |
