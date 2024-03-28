@@ -1,5 +1,10 @@
 name: Update File from URL
 
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
 on:
   push:
     branches:
