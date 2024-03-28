@@ -1,0 +1,47 @@
+name: Deploy to Cloudflare Workers with Wrangler
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+
+      - name: Install Wrangler
+        run: npm install -g @cloudflare/wrangler
+
+      - name: Set up Cloudflare API token
+        uses: c-si/github-secret-action@v1.0.0
+        with:
+          secret: CLOUDFLARE_API_TOKEN
+
+      - name: Set up Cloudflare account ID
+        uses: c-si/github-secret-action@v1.0.0
+        with:
+          secret: CLOUDFLARE_ACCOUNT_ID
+
+      - name: Deploy to Cloudflare Workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: wrangler publish --name=your-worker-name --env=production
+
+      - name: Print deployment-url
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: echo $DEPLOYMENT_URL
+
+      - name: Print wrangler command output
+        env:
+          CMD_OUTPUT: ${{ steps.deploy.outputs.command-output }}
+        run: echo $CMD_OUTPUT
