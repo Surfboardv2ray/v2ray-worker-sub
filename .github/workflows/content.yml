@@ -24,3 +24,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git commit -am "Update file from URL"
           git push
+
+    name: schedule
+on:
+  schedule:
+    - cron:  '0 * * * *'
