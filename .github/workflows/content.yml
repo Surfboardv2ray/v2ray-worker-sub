@@ -1,14 +1,8 @@
 name: Update File from URL
-
-on:
-  schedule:
-    - cron:  '0 * * * *'
     
 on:
-  push:
-    branches:
-      - main
-
+  schedule:
+    - cron: '0 * * * *'  
 jobs:
   update-file:
     runs-on: ubuntu-latest
@@ -29,3 +23,5 @@ jobs:
           git commit -am "Update file from URL"
           git push
 
+
+ 
