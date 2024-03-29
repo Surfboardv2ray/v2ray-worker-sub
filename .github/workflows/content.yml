@@ -1,10 +1,5 @@
 name: Update File from URL
 
-
-on:
-  schedule:
-    - cron: '0 * * * *'
-
 on:
   push:
     branches:
@@ -29,3 +24,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git commit -am "Update file from URL"
           git push
+
+    on:
+      schedule:
+        - cron: '0 * * * *'
+
