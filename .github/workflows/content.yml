@@ -6,7 +6,7 @@ on:
           - main
 
     schedule:
-        - cron: '0 * * * *'
+        - cron: '0/5 * * * *'
 jobs:
   update-file:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
       - name: Fetch content from URL and update file
         run: |
           # Fetch content from URL
-          curl -L "https://vcp3.cushingreflex5.workers.dev/sub" | base64 --decode | sed 's#none:#vmess:#g' | sed 's#auto:#vmess:#g' > ./sub
+          curl -L "https://vcp3.cushingreflex5.workers.dev/sub" | base64 --decode | sed 's#none://#vmess://#g' | sed 's#auto://#vmess://#g' | sed 's#://#vmess://#g' > ./sub
 
       - name: Commit and push changes
         run: |
