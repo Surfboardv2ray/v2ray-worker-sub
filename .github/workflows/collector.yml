@@ -58,7 +58,14 @@ jobs:
           node ./utils/localserver/index.js &
           sleep 2
           python ./utils/list_merge.py
+      
+      - name: Check for Base64 Changes
+        id: changes
+        run: |
+            git diff --quiet && echo 'No changes' || echo '::set-output name=changed::true'     
+      
       - name: Commit Changes
+        if: steps.changes64.outputs.changed == 'true'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
