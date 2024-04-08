@@ -34,7 +34,7 @@ jobs:
 
       - name: Commit and push in case of changes
         run: |
-          git config --local user.email "action@github.com
+          git config --local user.email "action@github.com"
           git config --local user.name "Github Action"
           git add -A
           git diff --quiet && get diff -staged --quiet || git commit -m "Convert to Base64"
