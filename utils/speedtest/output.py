@@ -5,13 +5,13 @@ import time
 
 out_json = './out.json'
 
-sub_all_base64 = "./sub/sub_merge_base64.txt"
-sub_all = "./sub/sub_merge.txt"
+sub_all_base64 = "./spd/sub_merge_base64.txt"
+sub_all = "./spd/sub_merge.txt"
 Eternity_file_base64 = "./Eternity"
 Eternity_file = "./Eternity.txt"
 Eternity_Base = "./EternityBase"
 
-splitted_output = "./sub/splitted/"
+splitted_output = "./spd/splitted/"
 
 
 def read_json(file):  # 将 out.json 内容读取为列表
