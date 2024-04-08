@@ -1,1 +1,325 @@
-
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  nameserver:
+  - 114.114.114.114
+  - 223.5.5.5
+  - 8.8.8.8
+  - 9.9.9.9
+  - 1.1.1.1
+  - https://dns.google/dns-query
+  - tls://dns.google:853
+proxies:
+- name: RELAY-104.16.162.16-03 | 0.0MB
+  server: 104.16.162.16
+  port: 2053
+  type: vmess
+  uuid: bf67437e-6c90-45ca-abc2-c7240a5ce2aa
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: foxus.fovi.tk
+- name: 🇨🇳CN-183.232.56.161-06 | 0.0MB
+  server: 183.232.56.161
+  port: 1952
+  type: vmess
+  uuid: 3a226645-c640-39a2-8177-000381e29f20
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇺🇸US-139.144.40.19-08 | 0.0MB
+  server: us1.31vpn.com
+  port: 80
+  type: vmess
+  uuid: bb4b9e95-c9ff-411c-9a47-483570e169aa
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us1.31vpn.com
+- name: 🇺🇸US-169.197.142.99-09 | 0.0MB
+  server: 169.197.142.99
+  port: 7002
+  type: ss
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+- name: 🇺🇸US-169.197.142.99-10 | 0.0MB
+  server: 169.197.142.99
+  port: 8090
+  type: ss
+  cipher: aes-256-gcm
+  password: PCnnH6SQSnfoS27
+- name: 🇺🇸US-169.197.142.99-11 | 0.0MB
+  server: 169.197.142.99
+  port: 2375
+  type: ss
+  cipher: aes-256-gcm
+  password: faBAoD54k87UJG7
+- name: 🇺🇸US-169.197.142.99-12 | 0.0MB
+  server: 169.197.142.99
+  port: 5001
+  type: ss
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+- name: 🇺🇸US-169.197.142.99-13 | 0.0MB
+  server: 169.197.142.99
+  port: 6697
+  type: ss
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
+- name: 🇺🇸US-169.197.142.99-14 | 0.0MB
+  server: 169.197.142.99
+  port: 8091
+  type: ss
+  cipher: aes-256-gcm
+  password: PCnnH6SQSnfoS27
+- name: 🇺🇸US-140.82.21.142-15 | 0.0MB
+  server: 140.82.21.142
+  port: 34762
+  type: vmess
+  uuid: b48abbe4-b603-11ec-8a20-560003efb98f
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇺🇸US-169.197.142.99-16 | 0.0MB
+  server: 169.197.142.99
+  port: 443
+  type: ss
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
+- name: 🇺🇸US-169.197.142.99-17 | 0.0MB
+  server: 169.197.142.99
+  port: 9102
+  type: ss
+  cipher: aes-256-gcm
+  password: e4FCWrgpkji3QY
+- name: 🇨🇳CN-183.232.56.161-18 | 0.0MB
+  server: 183.232.56.161
+  port: 5019
+  type: vmess
+  uuid: 3a226645-c640-39a2-8177-000381e29f20
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 183.232.56.161
+- name: 🇭🇰HK-165.154.225.176-19 | 0.0MB
+  server: 165.154.225.176
+  port: 443
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 0326hk01.fans8.xyz
+- name: 🇭🇰HK-165.154.225.231-20 | 0.0MB
+  server: 165.154.225.231
+  port: 443
+  type: vmess
+  uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c
+  alterId: 2
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 330hk02.fans8.xyz
+- name: 🇨🇳CN-183.232.56.161-22 | 0.0MB
+  server: 183.232.56.161
+  port: 1952
+  type: vmess
+  uuid: 3a226645-c640-39a2-8177-000381e29f20
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 183.232.56.161
+- name: 🇺🇸US-169.197.142.99-23 | 0.0MB
+  server: 169.197.142.99
+  port: 7001
+  type: ss
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+- name: 🇺🇸US-169.197.142.99-24 | 0.0MB
+  server: 169.197.142.99
+  port: 6679
+  type: ss
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
+- name: 🇺🇸US-169.197.142.99-25 | 0.0MB
+  server: 169.197.142.99
+  port: 9101
+  type: ss
+  cipher: aes-256-gcm
+  password: e4FCWrgpkji3QY
+- name: 🇨🇦CA-134.195.198.252-26 | 0.0MB
+  server: 134.195.198.252
+  port: 443
+  type: ss
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
+- name: 🇭🇰HK-13.70.16.197-27 | 0.0MB
+  server: 13.70.16.197
+  port: 33507
+  type: trojan
+  password: 5b192068-f80d-497a-aad0-7a52af7ef4df
+  sni: linode-sgp-1.forwardserver.xyz
+  skip-cert-verify: false
+- name: 🇨🇳CN-183.232.56.161-28 | 0.0MB
+  server: 183.232.56.161
+  port: 1101
+  type: vmess
+  uuid: 3a226645-c640-39a2-8177-000381e29f20
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 183.232.56.161
+- name: 🇨🇳CN-120.233.73.137-30 | 0.0MB
+  server: 7f98cedf-c70b-48e4-b7ec-4c2394ced310.404sx.com
+  port: 11003
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: b3b56f48-a48a-46b6-b462-54ca0b626f21
+proxy-groups:
+- name: Global ©️
+  type: select
+  proxies:
+  - Global - UrlTest(Tiers) 🥶
+  - Global - Fallback(Tiers) 🌎
+  - Global - LoadBalance(ch) 🦄
+  - Global - LoadBalance(rr) 🍄
+  - Tier 1 🚀
+  - Tier 2 ⚡️
+  - Tier 3 💎
+  - Tier 4 🗿
+- name: Global - UrlTest(Tiers) 🥶
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  proxies:
+  - Tier 1 🚀
+  - Tier 2 ⚡️
+  - Tier 3 💎
+  - Tier 4 🗿
+- name: Global - Fallback(Tiers) 🌎
+  type: fallback
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  proxies:
+  - Tier 1 🚀
+  - Tier 2 ⚡️
+  - Tier 3 💎
+  - Tier 4 🗿
+- name: Global - LoadBalance(ch) 🦄
+  type: load-balance
+  strategy: consistent-hashing
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  proxies:
+  - Tier 1 🚀
+  - Tier 2 ⚡️
+  - Tier 3 💎
+  - Tier 4 🗿
+- name: Global - LoadBalance(rr) 🍄
+  type: load-balance
+  strategy: round-robin
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  proxies:
+  - Tier 1 🚀
+  - Tier 2 ⚡️
+  - Tier 3 💎
+  - Tier 4 🗿
+- name: Tier 1 🚀
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  tolerance: 100
+  proxies:
+  - RELAY-104.16.162.16-03 | 0.0MB
+  - 🇨🇳CN-183.232.56.161-06 | 0.0MB
+  - 🇺🇸US-139.144.40.19-08 | 0.0MB
+  - 🇺🇸US-169.197.142.99-09 | 0.0MB
+  - 🇺🇸US-169.197.142.99-10 | 0.0MB
+- name: Tier 2 ⚡️
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  tolerance: 100
+  proxies:
+  - 🇺🇸US-169.197.142.99-11 | 0.0MB
+  - 🇺🇸US-169.197.142.99-12 | 0.0MB
+  - 🇺🇸US-169.197.142.99-13 | 0.0MB
+  - 🇺🇸US-169.197.142.99-14 | 0.0MB
+  - 🇺🇸US-140.82.21.142-15 | 0.0MB
+- name: Tier 3 💎
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  tolerance: 100
+  proxies:
+  - 🇺🇸US-169.197.142.99-16 | 0.0MB
+  - 🇺🇸US-169.197.142.99-17 | 0.0MB
+  - 🇨🇳CN-183.232.56.161-18 | 0.0MB
+  - 🇭🇰HK-165.154.225.176-19 | 0.0MB
+  - 🇭🇰HK-165.154.225.231-20 | 0.0MB
+- name: Tier 4 🗿
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  tolerance: 100
+  proxies:
+  - 🇨🇳CN-183.232.56.161-22 | 0.0MB
+  - 🇺🇸US-169.197.142.99-23 | 0.0MB
+  - 🇺🇸US-169.197.142.99-24 | 0.0MB
+  - 🇺🇸US-169.197.142.99-25 | 0.0MB
+  - 🇨🇦CA-134.195.198.252-26 | 0.0MB
+  - 🇭🇰HK-13.70.16.197-27 | 0.0MB
+  - 🇨🇳CN-183.232.56.161-28 | 0.0MB
+  - 🇨🇳CN-120.233.73.137-30 | 0.0MB
+rules:
+- MATCH,Global ©️
