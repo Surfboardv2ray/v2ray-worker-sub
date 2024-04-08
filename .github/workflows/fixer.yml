@@ -19,7 +19,7 @@ jobs:
       - name: Fetch content from URL and update file
         run: |
           # Fetch content from URL
-          curl -L "${{ secrets.INPUT_URL }}" | base64 --decode | sed 's#none://#vmess://#g' | sed 's#auto://#vmess://#g' | sed 's#gun://#vmess://#g' | sed -i 's/^:\/\/$/vmess:\/\//g' > ./sub
+          curl -L "${{ secrets.INPUT_URL }}" | base64 --decode | sed 's#none://#vmess://#g' | sed 's#auto://#vmess://#g' | sed 's#gun://#vmess://#g' > ./sub
 
       - name: Commit UTF-8 and push changes
         run: |
