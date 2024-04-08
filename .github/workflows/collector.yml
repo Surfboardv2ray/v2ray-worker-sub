@@ -118,14 +118,9 @@ jobs:
           chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
           python ./utils/eternity_convert.py
       
-      - name: Check for Final Changes
-        id: changesF
-        run: |
-            git diff --quiet && echo 'No changes' || echo '::set-output name=changed::true'
       
       - name: Commit Final changes
         run: |
-          if: steps.changesF.outputs.changed == 'true'
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git pull origin master
