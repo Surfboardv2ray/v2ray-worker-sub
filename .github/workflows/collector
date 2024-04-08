@@ -61,16 +61,16 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin master
+          git pull origin spdtst
           git add ./spd
           git add ./utils/Country.mmdb
           git add README.md
-          git checkout master
+          git checkout spdtst
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Collected"
       - name: Push Changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@spdtst
         with:
-          branch: master
+          branch: spdtst
 
       - name: Run Lite Speedtest
         run: |
@@ -81,7 +81,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin master
+          git pull origin spdtst
           git add EternityBase
           git add Eternity
           git add Eternity.txt
@@ -91,9 +91,9 @@ jobs:
           git add ./spd/splitted/*
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Tested"
       - name: Push Change
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@spdtst
         with:
-          branch: master
+          branch: spdtst
 
       - name: Run Convertor & Formatter
         run: |
@@ -106,7 +106,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin master
+          git pull origin spdtst
           git add Eternity.yml
           git add Eternity
           git add README.md
@@ -115,6 +115,6 @@ jobs:
           git clean -f -d
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Filtered"
       - name: Push Change
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@spdtst
         with:
-          branch: master
+          branch: spdtst
