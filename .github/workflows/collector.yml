@@ -125,7 +125,7 @@ jobs:
       
       - name: Commit Final changes
         run: |
-          if: steps.changes64.outputs.changed == 'true'
+          if: steps.changesF.outputs.changed == 'true'
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git pull origin master
@@ -136,6 +136,7 @@ jobs:
           git add LogInfo.txt
           git clean -f -d
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Filtered"
+      
       - name: Push Change
         uses: ad-m/github-push-action@master
         with:
