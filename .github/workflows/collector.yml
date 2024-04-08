@@ -3,7 +3,7 @@ name: Collect
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - "./EternityBase"
       - "./spd/sub_merge_base64.txt"
@@ -62,16 +62,16 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin main
+          git pull origin master
           git add ./spd
           git add ./utils/Country.mmdb
           git add README.md
-          git checkout main
+          git checkout master
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Collected"
       - name: Push Changes
-        uses: ad-m/github-push-action@main
+        uses: ad-m/github-push-action@master
         with:
-          branch: main
+          branch: master
 
       - name: Run Lite Speedtest
         run: |
@@ -82,7 +82,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin main
+          git pull origin master
           git add EternityBase
           git add Eternity
           git add Eternity.txt
@@ -92,9 +92,9 @@ jobs:
           git add ./spd/splitted/*
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Tested"
       - name: Push Change
-        uses: ad-m/github-push-action@main
+        uses: ad-m/github-push-action@master
         with:
-          branch: main
+          branch: master
 
       - name: Run Convertor & Formatter
         run: |
@@ -107,7 +107,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin main
+          git pull origin master
           git add Eternity.yml
           git add Eternity
           git add README.md
@@ -116,6 +116,6 @@ jobs:
           git clean -f -d
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Filtered"
       - name: Push Change
-        uses: ad-m/github-push-action@main
+        uses: ad-m/github-push-action@master
         with:
-          branch: main
+          branch: master
