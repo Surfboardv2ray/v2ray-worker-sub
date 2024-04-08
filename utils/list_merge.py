@@ -19,9 +19,9 @@ from urllib import request
 Eterniy = './Eternity'
 readme = './README.md'
 
-sub_list_json = './sub/sub_list.json'
-sub_merge_path = './sub/'
-sub_list_path = './sub/list/'
+sub_list_json = './spd/sub_list.json'
+sub_merge_path = './spd/'
+sub_list_path = './spd/list/'
 
 ipv4 = r"([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
 ipv6 = r'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
@@ -253,7 +253,7 @@ class sub_merge():
             lines = f.readlines()
             f.close()
         # 获得当前名单及各仓库节点数量
-        with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
+        with open('./spd/sub_merge.txt', 'r', encoding='utf-8') as f:
             total = len(f.readlines())
             total = f'Total number of merged nodes: `{total}`\n'
             thanks = []
@@ -329,7 +329,7 @@ class sub_merge():
                 lines.pop(index+1)  # 删除节点数量
 
                 # with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
-                with open('./sub/sub_merge_yaml.yml', 'r', encoding='utf-8') as f:
+                with open('./spd/sub_merge_yaml.yml', 'r', encoding='utf-8') as f:
                     proxies = f.read()
                     proxies = proxies.split('\n')
                     top_amount = len(proxies) - 1
@@ -338,7 +338,7 @@ class sub_merge():
                 lines.insert(
                     index+1, f'merge nodes w/o dup: `{top_amount}`\n')
                 """
-                with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
+                with open('./spd/sub_merge.txt', 'r', encoding='utf-8') as f:
                     proxies = f.read()
                     proxies = proxies.split('\n')
                     proxies = ['    '+proxy for proxy in proxies]
@@ -374,7 +374,7 @@ class sub_merge():
 
 if __name__ == '__main__':
     update_url.update_main(use_airport=False, airports_id=[
-                           5], sub_list_json="./sub/sub_list.json")
+                           5], sub_list_json="./spd/sub_list.json")
     sub_merge.geoip_update(
         'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
