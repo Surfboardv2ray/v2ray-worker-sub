@@ -1,4 +1,4 @@
-name: Collect
+name: Collect and Test
 
 on:
   push:
@@ -59,13 +59,13 @@ jobs:
           sleep 2
           python ./utils/list_merge.py
       
-      - name: Check for Base64 Changes
+      - name: Check for Collector Changes
         id: changes
         run: |
             git diff --quiet && echo 'No changes' || echo '::set-output name=changed::true'     
       
-      - name: Commit Changes
-        if: steps.changes64.outputs.changed == 'true'
+      - name: Commit Directory Changes
+        if: steps.changes.outputs.changed == 'true'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
@@ -75,7 +75,8 @@ jobs:
           git add README.md
           git checkout master
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Collected"
-      - name: Push Changes
+      
+      - name: Push Directory Changes
         uses: ad-m/github-push-action@master
         with:
           branch: master
@@ -85,7 +86,13 @@ jobs:
           sleep 5
           sudo sh ./utils/speedtest/speedtest2_yaml.sh
           python ./utils/speedtest/output.py
-      - name: Commit changes
+      
+      - name: Check for Eternity Changes
+        id: changesE
+        run: |
+            git diff --quiet && echo 'No changes' || echo '::set-output name=changed::true'
+      - name: Commit Eternity changes
+        if: steps.changes64.outputs.changed == 'true'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
@@ -110,8 +117,15 @@ jobs:
           tar -zxvf subconverter.tar.gz -C ./
           chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
           python ./utils/eternity_convert.py
-      - name: Commit changes
+      
+      - name: Check for Final Changes
+        id: changesF
         run: |
+            git diff --quiet && echo 'No changes' || echo '::set-output name=changed::true'
+      
+      - name: Commit Final changes
+        run: |
+          if: steps.changes64.outputs.changed == 'true'
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git pull origin master
