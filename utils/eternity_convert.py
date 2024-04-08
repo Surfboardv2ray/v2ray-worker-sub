@@ -20,7 +20,7 @@ log_file = './LogInfo.txt'
 provider_path = './update/provider/'
 update_path = './update/'
 
-sub_list_json = './sub/sub_list.json'
+sub_list_json = './spd/sub_list.json'
 
 config_file = './update/provider/config.yml'
 config_global_file = './update/provider/config-global.yml'
@@ -45,7 +45,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     # # no conversion from base64 so udp is not a problem
     # subconvertor not working with only proxy url
     all_provider = subs_function.convert_sub(
-        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_base64.txt", 'clash', "http://0.0.0.0:25500", False, extra_options="&udp=false")
+        "https://raw.githubusercontent.com/Surfboardv2ray/Vfarid-fix/master/spd/sub_merge_base64.txt", 'clash', "http://0.0.0.0:25500", False, extra_options="&udp=false")
 
     ##########   Add Name to Logs Before making chaages to Proxies  ############
     temp_providers = all_provider.split('\n')
