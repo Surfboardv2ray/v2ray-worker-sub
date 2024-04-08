@@ -4,7 +4,7 @@ Vfarid's [V2ray-worker](https://github.com/vfarid/v2ray-worker) Project returns 
 
 # SpeedTest and Sorting
 
-This code also uses [V2rayAggregator]([https:](https://github.com/mahdibland/V2RayAggregator)) developed by Mahdibland to speedtest and sort vmess proxies.
+This code also uses [V2rayAggregator](https:](https://github.com/mahdibland/V2RayAggregator)) developed by Mahdibland to speedtest and sort vmess proxies.
 
 # Subscription Links:
 
