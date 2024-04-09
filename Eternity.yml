@@ -17,7 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-104.16.162.16-03 | 1.804MB
+- name: RELAY-104.16.162.16-03 | 18.441MB
   server: 104.16.162.16
   port: 2053
   type: vmess
@@ -31,7 +31,7 @@ proxies:
     path: /
     headers:
       Host: foxus.fovi.tk
-- name: 🇨🇳CN-183.232.56.161-06 | 0.0MB
+- name: 🇨🇳CN-183.232.56.161-06 | 1.077MB
   server: 183.232.56.161
   port: 1952
   type: vmess
@@ -43,7 +43,7 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇺🇸US-139.144.40.19-08 | 0.0MB
+- name: 🇺🇸US-139.144.40.19-08 | 1.076MB
   server: us1.31vpn.com
   port: 80
   type: vmess
@@ -57,43 +57,43 @@ proxies:
     path: /
     headers:
       Host: us1.31vpn.com
-- name: 🇺🇸US-169.197.142.99-09 | 0.0MB
+- name: 🇺🇸US-169.197.142.99-09 | 1.075MB
   server: 169.197.142.99
   port: 7002
   type: ss
   cipher: aes-256-gcm
   password: RexnBgU7EV5ADxG
-- name: 🇺🇸US-169.197.142.99-10 | 0.0MB
+- name: 🇺🇸US-169.197.142.99-10 | 1.073MB
   server: 169.197.142.99
   port: 8090
   type: ss
   cipher: aes-256-gcm
   password: PCnnH6SQSnfoS27
-- name: 🇺🇸US-169.197.142.99-11 | 0.0MB
+- name: 🇺🇸US-169.197.142.99-11 | 1.07MB
   server: 169.197.142.99
   port: 2375
   type: ss
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
-- name: 🇺🇸US-169.197.142.99-12 | 0.0MB
+- name: 🇺🇸US-169.197.142.99-12 | 1.07MB
   server: 169.197.142.99
   port: 5001
   type: ss
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
-- name: 🇺🇸US-169.197.142.99-13 | 0.0MB
+- name: 🇺🇸US-169.197.142.99-13 | 1.068MB
   server: 169.197.142.99
   port: 6697
   type: ss
   cipher: aes-256-gcm
   password: TEzjfAYq2IjtuoS
-- name: 🇺🇸US-169.197.142.99-14 | 0.0MB
+- name: 🇺🇸US-169.197.142.99-14 | 1.068MB
   server: 169.197.142.99
   port: 8091
   type: ss
   cipher: aes-256-gcm
   password: PCnnH6SQSnfoS27
-- name: 🇺🇸US-140.82.21.142-15 | 0.0MB
+- name: 🇺🇸US-140.82.21.142-15 | 1.052MB
   server: 140.82.21.142
   port: 34762
   type: vmess
@@ -280,22 +280,22 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.16.162.16-03 | 1.804MB
-  - 🇨🇳CN-183.232.56.161-06 | 0.0MB
-  - 🇺🇸US-139.144.40.19-08 | 0.0MB
-  - 🇺🇸US-169.197.142.99-09 | 0.0MB
-  - 🇺🇸US-169.197.142.99-10 | 0.0MB
+  - RELAY-104.16.162.16-03 | 18.441MB
+  - 🇨🇳CN-183.232.56.161-06 | 1.077MB
+  - 🇺🇸US-139.144.40.19-08 | 1.076MB
+  - 🇺🇸US-169.197.142.99-09 | 1.075MB
+  - 🇺🇸US-169.197.142.99-10 | 1.073MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇺🇸US-169.197.142.99-11 | 0.0MB
-  - 🇺🇸US-169.197.142.99-12 | 0.0MB
-  - 🇺🇸US-169.197.142.99-13 | 0.0MB
-  - 🇺🇸US-169.197.142.99-14 | 0.0MB
-  - 🇺🇸US-140.82.21.142-15 | 0.0MB
+  - 🇺🇸US-169.197.142.99-11 | 1.07MB
+  - 🇺🇸US-169.197.142.99-12 | 1.07MB
+  - 🇺🇸US-169.197.142.99-13 | 1.068MB
+  - 🇺🇸US-169.197.142.99-14 | 1.068MB
+  - 🇺🇸US-140.82.21.142-15 | 1.052MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
