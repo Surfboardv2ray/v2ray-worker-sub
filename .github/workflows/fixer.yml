@@ -29,15 +29,7 @@ jobs:
       - name: Run script
         run: |
             python python/replace.py
-        
-      - name: Commit UTF-8 and push changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -am "Update file from URL"
-          git push
 
-            
       - name: Convert to Base64
         run: |
           content=$(cat sub | base64 | tr -d '\n')
