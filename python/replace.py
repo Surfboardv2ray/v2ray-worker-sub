@@ -9,6 +9,7 @@ for line in lines:
         line = 'vmess' + line
     line = re.sub(r'\bauto://\b', 'vmess://', line)
     line = re.sub(r'\bnone://\b', 'vmess://', line)
+    line = re.sub(r'\bhttp://\b', 'vmess://', line)
     new_lines.append(line)
 
 with open('sub', 'w') as f:
