@@ -16,6 +16,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Fetch content from URL and update file
+        run: |
+          # Fetch content from URL
+          curl -L "${{ secrets.INPUT_URL }}" | base64 --decode > ./sub
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -25,11 +30,6 @@ jobs:
         run: |
             python python/replace.py
         
-      - name: Fetch content from URL and update file
-        run: |
-          # Fetch content from URL
-          curl -L "${{ secrets.INPUT_URL }}" | base64 --decode | sed 's#gun://#vmess://#g' > ./sub
-
       - name: Commit UTF-8 and push changes
         run: |
           git config --local user.email "action@github.com"
