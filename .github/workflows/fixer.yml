@@ -51,6 +51,7 @@ jobs:
       - name: Convert to Base64
         run: |
           base64 sub > sub64
+          base64 python/pretest > python/pretest64
 
       - name: Commit and push in case of changes
         run: |
