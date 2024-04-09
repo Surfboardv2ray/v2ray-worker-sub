@@ -37,22 +37,11 @@ jobs:
           git commit -am "Update file from URL"
           git push
 
-      - name: Run Supported SpeedTest
-        run: |
-            python python/pretest.py
-
-      - name: Commit Pretest
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -am "Pretest acquired"
-          git push 
             
       - name: Convert to Base64
         run: |
-          base64 sub > sub64
-          content=$(cat python/pretest | base64 | tr -d '\n')
-            echo "$content" > python/pretest64
+          content=$(cat sub | base64 | tr -d '\n')
+            echo "$content" > sub64
 
       - name: Commit and push in case of changes
         run: |
