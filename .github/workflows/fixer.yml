@@ -26,16 +26,33 @@ jobs:
         with:
             python-version: 3.8
 
-      - name: Run script
+      - name: Run Replace
         run: |
             python python/replace.py
 
-      - name: Convert to Base64
+      - name: Commit Sub
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Github Action"
+          git add -A
+          git diff --quiet && get diff -staged --quiet || git commit -m "Fix Sub"
+          git push
+      
+      - name: Run Pretest
+        run: |
+            python python/pretest.py
+            
+      - name: Convert Sub to Base64
         run: |
           content=$(cat sub | base64 | tr -d '\n')
             echo "$content" > sub64
 
-      - name: Commit and push in case of changes
+      - name: Convert Pretest to Base64
+        run: |
+          content=$(cat python/pretest | base64 | tr -d '\n')
+            echo "$content" > python/pretest64
+
+      - name: Commit Base64 Changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Github Action"
