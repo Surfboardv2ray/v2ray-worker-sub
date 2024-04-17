@@ -92,7 +92,7 @@ jobs:
         run: |
             git diff --quiet && echo 'No changes' || echo '::set-output name=changed::true'
       - name: Commit Eternity changes
-        if: steps.changes64.outputs.changed == 'true'
+        if: steps.changesE.outputs.changed == 'true'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
