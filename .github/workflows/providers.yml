@@ -137,12 +137,16 @@ jobs:
           content=$(cat providers/ir | base64)
           echo "$content" > providers/ir64
 
-      - name: Commit and push if it changed
+      - name: Check for changes
+        id: changesir
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git diff --quiet && echo "::set-output name=changed::false" || echo "::set-output name=changed::true"
+
+      - name: Commit and push if changed
+        if: steps.changesir.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
           git add -A
-          if [[ $(git diff --stat) != '' ]]; then
-            git commit -m "Encode IR to Base64"
-            git push
-          fi
+          git commit -m "Update IR"
+          git push
