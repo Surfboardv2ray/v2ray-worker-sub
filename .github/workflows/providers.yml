@@ -71,24 +71,25 @@ jobs:
           git add -A
           git commit -m "Update providers"
           git push
-
-      - name: Install necessary packages
-        run: sudo apt-get install -y coreutils
-
-      - name: Encode file content to Base64
+        
+      - name: Convert Providers to Base64
         run: |
-          content=$(cat providers/provdiders | base64)
-          echo "$content" > providers/providers64
+          content=$(cat providers/providers | base64 | tr -d '\n')
+            echo "$content" > providers/providers64
 
-      - name: Commit and push if it changed
+      - name: Check for base64 changes
+        id: changes64
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git diff --quiet && echo "::set-output name=changed::false" || echo "::set-output name=changed::true"
+
+      - name: Commit and push if changed
+        if: steps.changes64.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
           git add -A
-          if [[ $(git diff --stat) != '' ]]; then
-            git commit -m "Encode providers to Base64"
-            git push
-          fi
+          git commit -m "Encode to base64"
+          git push
 
       - name: Get IR Providers
         run: |
@@ -134,10 +135,10 @@ jobs:
 
       - name: Encode IR content to Base64
         run: |
-          content=$(cat providers/ir | base64)
+          content=$(cat providers/ir | base64 | tr -d '\n')
           echo "$content" > providers/ir64
 
-      - name: Check for changes
+      - name: Check for changes IR64
         id: changesir
         run: |
           git diff --quiet && echo "::set-output name=changed::false" || echo "::set-output name=changed::true"
