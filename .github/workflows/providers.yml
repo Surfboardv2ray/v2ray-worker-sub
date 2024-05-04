@@ -70,6 +70,7 @@ jobs:
           git config --local user.email 'github-actions@github.com'
           git add .
           git add providers/providers
+          git pull
           git commit -m "Update providers"
           git push
         
