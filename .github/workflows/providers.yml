@@ -54,9 +54,8 @@ jobs:
                 exit 1
               fi
             else
-              echo "$content" >> providers/providers.txt
+              echo "$content" >> providers/providers
             fi
-            echo "" >> providers/providers.txt
           done
      
       - name: Check for changes
@@ -70,5 +69,23 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'github-actions@github.com'
           git add -A
-          git commit -m "Update providers/providers"
+          git commit -m "Update providers"
           git push
+
+      - name: Install necessary packages
+        run: sudo apt-get install -y coreutils
+
+      - name: Encode file content to Base64
+        run: |
+          content=$(cat providers/provdiders | base64)
+          echo "$content" > providers/providers64
+
+      - name: Commit and push if it changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          if [[ $(git diff --stat) != '' ]]; then
+            git commit -m "Encode providers to Base64"
+            git push
+          fi
