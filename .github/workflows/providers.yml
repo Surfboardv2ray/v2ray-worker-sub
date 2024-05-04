@@ -38,6 +38,8 @@ jobs:
             "https://raw.githubusercontent.com/ndsphonemy/proxy-sub/main/speed.txt"
           )
 
+          > providers/providers
+          > providers/providers64
           for url in "${urls[@]}"
           do
             echo "Processing $url"
@@ -101,6 +103,8 @@ jobs:
             "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/country/IR/base64"
           )
 
+          > providers/ir
+          > providers/ir64
           for link in "${links[@]}"
           do
             echo "Processing $link"
