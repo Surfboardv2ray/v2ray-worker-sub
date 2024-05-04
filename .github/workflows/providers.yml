@@ -89,3 +89,60 @@ jobs:
             git commit -m "Encode providers to Base64"
             git push
           fi
+
+      - name: Get IR Providers
+        run: |
+          links=(
+            "https://raw.githubusercontent.com/Surfboardv2ray/Proxy-sorter/main/submerge/IR.txt"
+            "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/countries/ir/mixed"
+            "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/country/IR/base64"
+          )
+
+          for link in "${links[@]}"
+          do
+            echo "Processing $link"
+            content=$(curl -s --fail $link)
+            if [[ $? -ne 0 ]]; then
+              echo "Failed to fetch content from $link"
+              exit 1
+            fi
+
+            if [[ $content =~ ^[A-Za-z0-9+/=]+$ ]]; then
+              echo "$content" | base64 --decode >> providers/ir
+              if [[ $? -ne 0 ]]; then
+                echo "Failed to decode base64 content from $url"
+                exit 1
+              fi
+            else
+              echo "$content" >> providers/ir
+            fi
+          done
+     
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet && echo "::set-output name=changed::false" || echo "::set-output name=changed::true"
+
+      - name: Commit and push if changed
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
+          git add -A
+          git commit -m "Update IR"
+          git push
+
+      - name: Encode IR content to Base64
+        run: |
+          content=$(cat providers/ir | base64)
+          echo "$content" > providers/ir64
+
+      - name: Commit and push if it changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          if [[ $(git diff --stat) != '' ]]; then
+            git commit -m "Encode IR to Base64"
+            git push
+          fi
