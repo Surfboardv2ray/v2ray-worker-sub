@@ -68,7 +68,8 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'github-actions@github.com'
-          git add -A
+          git add .
+          git add providers/providers
           git commit -m "Update providers"
           git push
         
