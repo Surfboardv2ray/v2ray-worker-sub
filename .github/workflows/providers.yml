@@ -48,7 +48,7 @@ jobs:
             fi
 
             if [[ $content =~ ^[A-Za-z0-9+/=]+$ ]]; then
-              echo "$content" | base64 --decode >> providers/providers.txt
+              echo "$content" | base64 --decode >> providers/providers
               if [[ $? -ne 0 ]]; then
                 echo "Failed to decode base64 content from $url"
                 exit 1
