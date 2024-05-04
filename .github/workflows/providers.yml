@@ -1,0 +1,74 @@
+name: Combine URL Contents
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+  schedule:
+        - cron: '0 */6 * * *'
+
+jobs:
+  combine:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Combine URL Contents
+        run: |
+          urls=(
+            "https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/vless"
+            "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_base64.txt"
+            "https://raw.githubusercontent.com/mfuu/v2ray/master/v2ray"
+            "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt"
+            "https://raw.githubusercontent.com/Flik6/getNode/main/v2ray.txt"
+            "https://raw.githubusercontent.com/mlabalabala/v2ray-node/main/nodefree_nodes_mod.txt"
+            "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/splitted/vmess.txt"
+            "https://raw.githubusercontent.com/Surfboardv2ray/Subs/main/Raw"
+            "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/main/sub.txt"
+            "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/xray/base64/mix"
+            "https://raw.githubusercontent.com/yebekhe/V2Hub/main/merged_base64"
+            "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/splitted/mixed"
+            "https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2"
+            "https://raw.githubusercontent.com/Syavar/V2ray-Configs/main/OK_google.com_base64.txt"
+            "https://raw.githubusercontent.com/ndsphonemy/proxy-sub/main/default.txt"
+            "https://raw.githubusercontent.com/ndsphonemy/proxy-sub/main/speed.txt"
+          )
+
+          for url in "${urls[@]}"
+          do
+            echo "Processing $url"
+            content=$(curl -s --fail $url)
+            if [[ $? -ne 0 ]]; then
+              echo "Failed to fetch content from $url"
+              exit 1
+            fi
+
+            if [[ $content =~ ^[A-Za-z0-9+/=]+$ ]]; then
+              echo "$content" | base64 --decode >> providers/providers.txt
+              if [[ $? -ne 0 ]]; then
+                echo "Failed to decode base64 content from $url"
+                exit 1
+              fi
+            else
+              echo "$content" >> providers/providers.txt
+            fi
+            echo "" >> providers/providers.txt
+          done
+     
+      - name: Check for changes
+        id: git-diff
+        run: |
+          git diff --quiet && echo "::set-output name=changed::false" || echo "::set-output name=changed::true"
+
+      - name: Commit and push if changed
+        if: steps.git-diff.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
+          git add -A
+          git commit -m "Update providers/providers"
+          git push
