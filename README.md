@@ -1,6 +1,6 @@
-# Vfarid-fix
+# v2ray-worker-sub
 
-Vfarid's [V2ray-worker](https://github.com/vfarid/v2ray-worker) Project returns vmess:// proxies as unsupported format for most of v2ray apps. Until he pushes a fix, this repository is mostly about fixing the output of his code.
+This repository is mainly based on Vfarid's [V2ray-worker](https://github.com/vfarid/v2ray-worker) Project, version 2.3 with a minor change to return vmess:// proxies as well as vless:// correctly. Providers include Telegram Channels and publicly available v2ray subscriptions.
 
 # SpeedTest and Sorting
 
