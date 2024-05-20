@@ -1,7 +1,7 @@
 # V2ray Worker Sub
 
 * This repository is mainly based on Vfarid's [V2ray-worker](https://github.com/vfarid/v2ray-worker) Project, version 2.3 with a minor change to return vmess:// proxies as well as vless:// correctly. Providers include Telegram Channels and publicly available v2ray subscriptions.
-* Note that there's a daily limitation (100,000) on Cloudflare's behalf. You could  deploy [Your Own Version of the worker](https://www.youtube.com/watch?v=Jb_6jmrKKyo) using this [Bug fixed release](https://github.com/Surfboardv2ray/v2ray-worker-sub/releases/download/2.3.1/worker.js) of worker sub.
+* Note that there's a daily limitation (100,000) on Cloudflare's behalf. You could  deploy [Your Own Worker](https://www.youtube.com/watch?v=Jb_6jmrKKyo) using this [Bug fixed release](https://github.com/Surfboardv2ray/v2ray-worker-sub/releases/download/2.3.1/worker.js) of the script.
 
 # SpeedTest and Sorting
 
