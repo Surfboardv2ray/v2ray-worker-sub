@@ -21,3 +21,7 @@ This code also uses [V2rayAggregator](https://github.com/mahdibland/V2RayAggrega
 ♦️ Eternity: [Link](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/Eternity.txt)
 
 ♦️ Eternity Base64: [Link](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/Eternity)
+
+
+## Stargazers
+[![Stargazers over time](https://starchart.cc/Surfboardv2ray/v2ray-worker-sub.svg?variant=adaptive)](https://starchart.cc/Surfboardv2ray/v2ray-worker-sub)
