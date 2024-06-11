@@ -4,7 +4,7 @@
 
 # How to deploy
 
-* Since there's a daily limitation (100,000) on Cloudflare's behalf. There are two approaches to deploy your own version:
+* Since there's a daily limitation (100,000 requests) on Cloudflare's behalf. There are two approaches to deploy your own version:
 * You could  deploy [Your Own Worker](https://www.youtube.com/watch?v=Jb_6jmrKKyo) using this [Bug fixed release](https://github.com/Surfboardv2ray/v2ray-worker-sub/releases/download/2.3.1/worker.js) of the script.
 * If you have a v2ray worker sub deployed on Cloudflare already, Fork this repository and create Actions Secret `INPUT_URL` and put your worker sub URL as the value.
 
