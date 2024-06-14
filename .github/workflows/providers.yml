@@ -103,7 +103,7 @@ jobs:
             "https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/country/IR/base64"
             "https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/providers/configshub"
           )
-
+      
           > providers/ir
           > providers/ir64
           for link in "${links[@]}"
@@ -111,20 +111,21 @@ jobs:
             echo "Processing $link"
             content=$(curl -s --fail $link)
             if [[ $? -ne 0 ]]; then
-              echo "Failed to fetch content from $link"
-              exit 1
+              echo "Failed to fetch content from $link, skipping."
+              continue
             fi
-
+      
             if [[ $content =~ ^[A-Za-z0-9+/=]+$ ]]; then
               echo "$content" | base64 --decode >> providers/ir
               if [[ $? -ne 0 ]]; then
-                echo "Failed to decode base64 content from $url"
-                exit 1
+                echo "Failed to decode base64 content from $link, skipping."
+                continue
               fi
             else
               echo "$content" >> providers/ir
             fi
           done
+
      
       - name: Check for changes
         id: changes
