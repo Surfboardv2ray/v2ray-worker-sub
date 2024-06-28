@@ -8,6 +8,8 @@
 * You could  deploy [Your Own Worker](https://www.youtube.com/watch?v=Jb_6jmrKKyo) using this [Bug fixed release](https://github.com/Surfboardv2ray/v2ray-worker-sub/releases/download/2.3.1/worker.js) of the script.
 * If you have a v2ray worker sub deployed on Cloudflare already, Fork this repository and create Actions Secret `INPUT_URL` and put your worker sub URL as the value.
 
+* Update: Version 2.4 of the original script has been released, you can access it directly [from here](https://github.com/vfarid/v2ray-worker/releases/download/v2.4/worker.js).
+
 # SpeedTest and Sorting
 
 This code also uses [V2rayAggregator](https://github.com/mahdibland/V2RayAggregator) developed by Mahdibland to speedtest and sort vmess proxies.
