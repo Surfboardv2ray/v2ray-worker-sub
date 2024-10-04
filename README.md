@@ -16,17 +16,17 @@ This code also uses [V2rayAggregator](https://github.com/mahdibland/V2RayAggrega
 
 # Subscription Links:
 
-♦️ Worker sub (Daily Limitation): [Link](.\main/sub)
+♦️ Worker sub (Daily Limitation): [Link](./sub)
 
-♦️ Worker Base64 (Daily Limitation): [Link](.\main/sub64)
+♦️ Worker Base64 (Daily Limitation): [Link](./sub64)
 
-♦️ Eternity: [Link](.\Eternity.txt)
+♦️ Eternity: [Link](./Eternity.txt)
 
-♦️ Eternity Base64: [Link](.\Eternity)
+♦️ Eternity Base64: [Link](./Eternity)
 
-♦️ Providers (Mega Sub): [Link](.\providers/providers)
+♦️ Providers (Mega Sub): [Link](./providers/providers)
 
-♦️ Providers Base64 (Mega Sub): [Link](.\providers/providers64)
+♦️ Providers Base64 (Mega Sub): [Link](./providers/providers64)
 
 
 ## Stargazers
