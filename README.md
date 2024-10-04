@@ -16,17 +16,17 @@ This code also uses [V2rayAggregator](https://github.com/mahdibland/V2RayAggrega
 
 # Subscription Links:
 
-♦️ Worker sub (Daily Limitation): [Link](./sub)
+♦️ Worker sub (Daily Limitation): [Link](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/sub)
 
-♦️ Worker Base64 (Daily Limitation): [Link](./sub64)
+♦️ Worker Base64 (Daily Limitation): [Link](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/sub64)
 
-♦️ Eternity: [Link](./Eternity.txt)
+♦️ Eternity: [Link](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/Eternity.txt)
 
-♦️ Eternity Base64: [Link](./Eternity)
+♦️ Eternity Base64: [Link](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/Eternity)
 
-♦️ Providers (Mega Sub): [Link](./providers/providers)
+♦️ Providers (Mega Sub): [Link](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/providers/providers)
 
-♦️ Providers Base64 (Mega Sub): [Link](./providers/providers64)
+♦️ Providers Base64 (Mega Sub): [Link](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/refs/heads/master/providers/providers64)
 
 
 ## Stargazers
